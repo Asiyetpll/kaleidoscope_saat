@@ -40,33 +40,56 @@ document.getElementById('imageInput').addEventListener('change', function () {
         reader.onload = function () {
             const imgUrl = reader.result;
 
-            // Resmi önizleme alanına ekle
-            const imgElement = document.createElement('img');
-            imgElement.src = imgUrl;
-            imgElement.style.cursor = 'pointer'; // Resme tıklanabilir olması için imleci el işaretine çevir
-            imgElement.style.width = '150%';
-            imgElement.style.height = '150%';
-            imgElement.style.marginLeft = '750px';
-            imagePreview.innerHTML = ''; // Önceki resmi temizle
-            imagePreview.appendChild(imgElement);
+            // Yeni bir div oluştur
+            var newDiv = document.createElement("div");
+            newDiv.className = "col"; // Class adını ekleyin
 
-            // Resme tıklandığında saat ekranındaki texture'ların arka plan resmini güncelle
-            imgElement.addEventListener('click', function () {
-                // Seçilen resmin URL'sini al
-                const selectedImageUrl = imgElement.src;
-
-                // Saat ekranındaki texture'ların arka plan resmini güncelle
-                const textures = document.querySelectorAll('.texture');
-                textures.forEach(texture => {
-                    texture.style.backgroundImage = `url(${selectedImageUrl})`;
-                });
-            });
-
+            // İçeriğini ayarla
+            newDiv.innerHTML = `
+                <div class="card shadow-sm">
+                    <img src="${imgUrl}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" data-image="${imgUrl}">
+                    <div class="card-body">
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                            </div>
+                            <small class="text-body-secondary">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            `;
+            // Yeni div'i ilgili yere ekle
+            document.getElementById("targetDiv").appendChild(newDiv);
         };
 
         reader.readAsDataURL(file);
     }
 });
+
+document.getElementById('targetDiv').addEventListener('click', function (event) {
+    const target = event.target;
+    if (target.tagName === 'IMG') {
+        // Tıklanabilir resimlere click event'i ekle
+        const allImages = document.querySelectorAll('.image-preview img');
+        allImages.forEach(img => {
+            img.addEventListener('click', function () {
+                const imageURL = this.getAttribute('data-image');
+                const tiles = document.querySelectorAll('.tile');
+                tiles.forEach(tile => {
+                    const textureDiv = tile.querySelector('.texture');
+                    textureDiv.style.backgroundImage = `url(${imageURL})`;
+                });
+            });
+        });
+        const imageURL = target.getAttribute('src');
+        document.querySelector('.texture').style.backgroundImage = `url(${imageURL})`;
+    }
+});
+
+
+
 
 
 // Kadran ayarlarını al
