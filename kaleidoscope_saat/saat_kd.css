@@ -4,7 +4,7 @@
 
 :root {
     --tile-length: 17.5vmin;
-    --animation-duration: 8s; 
+    --animation-duration: 8s;
 }
 
 * {
@@ -258,14 +258,20 @@ h1 {
     align-items: center;
 }
 
+
+/* Saat kadranı stilleri */
 .hour-hand,
-.minute-hand,
-.second-hand {
+.second-hand,
+.minute-hand {
     position: absolute;
     width: 2px;
-    background-color: white;
+    background-color: var(--hand-color, white);
+    /* Renk değerini CSS değişkeninden al */
     transform-origin: 50% 100%;
+    height: var(--hand-thickness, 4px);
+    /* Kalınlık değerini CSS değişkeninden al */
 }
+
 
 .hour-hand {
     height: 130px;
@@ -394,26 +400,29 @@ h1 {
 }
 
 .image-upload {
-    width: 60%; /* Resim ekleme formu container'ının genişliğini ayarla */
+    width: 60%;
+    /* Resim ekleme formu container'ının genişliğini ayarla */
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* İçeriği sağa hizala */
+    justify-content: flex-end;
+    /* İçeriği sağa hizala */
     margin-left: 750px;
 }
 
-#addImageButton{
+#addImageButton {
     width: 105px;
     margin-top: 2px;
     margin-left: 2px;
 }
 
 .image-preview {
-    margin-top: 20px; /* Resim gösterme alanını biraz aşağıya it */
+    margin-top: 20px;
+    /* Resim gösterme alanını biraz aşağıya it */
     width: 100px;
     height: 150px;
 }
 
-.resim-alani{
+.resim-alani {
     margin-left: 750px;
     border: 2px solid black;
     width: 90%;
@@ -423,7 +432,7 @@ h1 {
     overflow: scroll;
 }
 
-.kadran-alani{
+.kadran-alani {
     margin-left: 750px;
     border: 2px solid black;
     width: 90%;
@@ -448,18 +457,17 @@ h1 {
     margin-bottom: 10px;
 }
 
-.shadow-sm{
+.shadow-sm {
     width: 500px;
     height: auto;
     margin-top: -50px;
 }
 
-.bd-placeholder-img card-img-top{
+.bd-placeholder-img card-img-top {
     width: 500px;
     height: 200px;
 }
 
-.img .bd-placeholder-img card-img-top{
+.img .bd-placeholder-img card-img-top {
     margin-top: -150px;
 }
-

@@ -89,9 +89,6 @@ document.getElementById('targetDiv').addEventListener('click', function (event) 
 });
 
 
-
-
-
 // Kadran ayarlarını al
 const thicknessInput = document.getElementById('thickness');
 const colorInput = document.getElementById('color');
@@ -107,3 +104,4 @@ function updateClockStyle() {
     // Renk değerini al ve CSS değişkenine ata
     document.documentElement.style.setProperty('--hand-color', colorInput.value);
 }
+
