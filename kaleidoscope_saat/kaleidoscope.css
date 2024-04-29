@@ -1,0 +1,190 @@
+body {
+    background-color: #7663638a;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.FFFF {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.FFFF1 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+.FFFF2 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+.FFFF3 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    width: 200px;
+    height: 200px;
+}
+
+.FFFF4 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 200px;
+    height: 200px;
+}
+
+.DDDD {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    width: 200px;
+    height: 200px;
+}
+
+.DDDD1 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    width: 200px;
+    height: 200px;
+}
+
+.DDDD2 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 200px;
+    height: 200px;
+}
+
+.DDDD3 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    width: 200px;
+    height: 200px;
+}
+
+.DDDD4 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 200px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.PPPP1 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.PPPP2 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.PPPP3 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: -100px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.PPPP4 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: -100px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.PPPP5 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 300px;
+    left: 0px;
+    width: 200px;
+    height: 200px;
+}
+
+.PPPP6 {
+    background-image: url('resimler/indir\ \(2\).jpeg');
+    position: absolute;
+    top: 300px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+    transform: rotate(90deg);
+}
+
+.XXXX {
+    background-color: rgba(28, 82, 28, 0.1);
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    filter: brightness(130%);
+    border-radius: 50%;
+    border: solid 4px #E0292C;
+    margin-left: 400px;
+    margin-top: 100px;
+}
+
+.AAAA {
+    position: absolute;
+    top: 100px;
+    left: 600px;
+    width: 200px;
+    height: 300px;
+    margin-left: 400px;
+    margin-top: 100px;
+}
+
+input[type=range][orient=vertical] {
+    appearance: slider-vertical;
+    width: 8px;
+    height: 75px;
+    padding: 0 5px;
+}
+
+#range {
+    transform: scale(4.3);
+    transform-origin: 0 0;
+}
