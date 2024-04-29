@@ -41,32 +41,31 @@ document.getElementById('imageInput').addEventListener('change', function () {
             const imgUrl = reader.result;
 
             // Yeni bir div oluştur
-            var newDiv = document.createElement("div");
-            newDiv.className = "col"; // Class adını ekleyin
-
-            // İçeriğini ayarla
-            newDiv.innerHTML = `
-                <div class="card shadow-sm">
-                    <img src="${imgUrl}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" data-image="${imgUrl}">
-                    <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            const newDiv = `
+                <div class="col mt-5">
+                    <div class="card shadow-sm mt-5">
+                        <img src="${imgUrl}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" data-image="${imgUrl}">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-body-secondary">9 mins</small>
                             </div>
-                            <small class="text-body-secondary">9 mins</small>
                         </div>
                     </div>
                 </div>
             `;
-            // Yeni div'i ilgili yere ekle
-            document.getElementById("targetDiv").appendChild(newDiv);
+            // Yeni div'i galerinin en altına ekle
+            document.getElementById("targetDiv").insertAdjacentHTML('beforeend', newDiv);
         };
 
         reader.readAsDataURL(file);
     }
 });
+
 
 document.getElementById('targetDiv').addEventListener('click', function (event) {
     const target = event.target;
