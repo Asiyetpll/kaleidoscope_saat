@@ -3,7 +3,6 @@ function updateClock() {
     const hour = now.getHours();
     const minute = now.getMinutes();
     const second = now.getSeconds();
-
     const hourHand = document.getElementById('hour-hand');
     const minuteHand = document.getElementById('minute-hand');
     const secondHand = document.getElementById('second-hand');
