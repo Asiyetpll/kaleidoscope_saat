@@ -1,0 +1,443 @@
+
+.mor_cerceve{
+    width: 560px;
+    height: 670px;
+    border: 3px solid rgb(110, 79, 110);
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-right: 5px;
+    position: absolute;
+    right: 0;
+}
+
+#stil{
+    display: block;
+    text-align: center;
+}
+
+#stil1{
+    display: block;
+    text-align: center;
+    margin-top: -17px;
+    margin-bottom: -20px;
+}
+
+#stil2{
+    display: block;
+    text-align: left;
+    margin-top: 60px;
+    margin-left: 10px;
+    font-size: larger;
+}
+
+:root {
+    --tile-length: 6vmin;
+  /*  --animation-duration: 8s; */
+}
+
+
+/* Kadran ayarları stil */
+.clock-settings {
+    margin-top: 15px;
+    margin-left: 0px;
+    text-align: -webkit-center;
+    border: 2px solid purple;
+    border-radius: 3px;
+}
+
+.kaleidoscope {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    -webkit-animation: rotation var(--animation-duration) linear infinite;
+    animation: rotation var(--animation-duration) linear infinite;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.kaleidoscope:after {
+    content: '';
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    z-index: 0;
+}
+
+.kl-el {
+    position: absolute;
+    width: calc(250px / 3);
+    height: calc(250px / 3);
+    border-radius: 50%;
+    overflow: hidden;
+    transform: translate(calc(140px / -7.5), -50%);
+}
+
+.kl-el:nth-child(1) {
+    top: 50%;
+    left: -17%;
+}
+
+.kl-el:nth-child(2) {
+    top: 50%;
+    left: 34%;
+}
+
+.kl-el:nth-child(3) {
+    top: 50%;
+    left: 85%;
+}
+
+.kl-el:nth-child(4) {
+    top: calc(46% - calc(1.31* 129px / 3));
+    left: calc(85px / 3* 0.423);
+}
+
+.kl-el:nth-child(5) {
+    top: calc(50% - calc(1.49* 125px / 3));
+    left: calc(3* 117px / 3* 0.717);
+}
+
+.kl-el:nth-child(6) {
+    top: calc(50% + calc(1.5* 125px / 3));
+    left: calc(86px / 3* 0.420);
+}
+
+.kl-el:nth-child(7) {
+    top: calc(50% + calc(1.5* 125px / 3));
+    left: calc(3* 117px / 3* 0.717);
+}
+
+@-webkit-keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.tile {
+    position: absolute;
+    top: 28%;
+    left: 25%;
+    width: var(--tile-length);
+    height: calc(var(--tile-length) * 0.866);
+    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile:nth-child(1) {
+    transform: rotate(30deg) translateY(50%) scaleX(-1);
+}
+
+.tile:nth-child(2) {
+    transform: rotate(90deg) translateY(50%);
+}
+
+.tile:nth-child(3) {
+    transform: rotate(150deg) translateY(50%) scaleX(-1);
+}
+
+.tile:nth-child(4) {
+    transform: rotate(210deg) translateY(50%);
+}
+
+.tile:nth-child(5) {
+    transform: rotate(270deg) translateY(50%) scaleX(-1);
+}
+
+.tile:nth-child(6) {
+    transform: rotate(330deg) translateY(50%);
+}
+
+.texture {
+    position: absolute;
+    height: calc(1.75 * var(--tile-length));
+    width: calc(1.75 * var(--tile-length));
+    background-image: url(kaleidoscope_saat/resimler/manzara.jpg);
+    background-size: 100%;
+    -webkit-animation: rotation var(--animation-duration) linear infinite;
+    animation: rotation var(--animation-duration) linear infinite;
+}
+
+.tile .texture {
+    position: absolute;
+    height: calc(1.75 * var(--tile-length));
+    width: calc(1.75 * var(--tile-length));
+}
+
+
+.link {
+    position: fixed;
+    z-index: 10;
+    left: calc(2.5vmin - .75rem);
+    bottom: calc(2.5vmin - .75rem);
+    font-size: 1.5rem;
+    font-family: arial, sans-serif;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.my-name {
+    position: relative;
+}
+
+.before,
+.after {
+    overflow: hidden;
+    width: 0px;
+    transition: width .5s;
+    transform-origin: right;
+}
+
+.before-text {
+    display: inline-block;
+    width: auto;
+    text-align: right;
+}
+
+.after-text {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 3rem;
+    transform-origin: top center;
+}
+
+.link:hover .before {
+    width: 2.5rem;
+}
+
+.link:hover .after {
+    width: 4rem;
+}
+
+.link:hover .spin {
+    display: inline-block;
+    transition: .5s transform .5s ease-in-out;
+    transform: rotate(360deg);
+}
+
+.mywatch {
+    width: 180px;
+    height: 180px;
+    background-color: #444;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.screen {
+    width: 140px;
+    height: 140px;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Saat kadranı stilleri */
+.hour-hand,
+.second-hand,
+.minute-hand {
+    position: absolute;
+    width: 2px;
+    background-color: var(--hand-color, white);
+    /* Renk değerini CSS değişkeninden al */
+    transform-origin: 50% 100%;
+    height: var(--hand-thickness, 4px);
+    /* Kalınlık değerini CSS değişkeninden al */
+}
+
+
+.hour-hand {
+    height: 35px;
+    top: 35px;
+    margin-left: 0;
+    width: 3px;
+}
+
+.minute-hand {
+    height: 50px;
+    top: 20px;
+    margin-left: 0;
+    width: 3px;
+}
+
+.second-hand {
+    height: 70px;
+    top: 0px;
+    margin-left: 0;
+    width: 1px;
+}
+
+.numbers {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    transform: rotate(30deg);
+    margin-top: -15px;
+    margin-left: 10px;
+}
+
+.number {
+    position: absolute;
+    font-size: 16px;
+    color: #fff;
+    transform-origin: center;
+    transform: translateX(-50%) rotate(-30deg);
+    /* Sayıların yuvarlak içinde düzgün bir şekilde yerleştirilmesini sağlar */
+}
+
+.number:nth-child(1) {
+    top: -6px;
+    left: 49%;
+    font-size: 20px;
+}
+
+.number:nth-child(2) {
+    top: 4.5%;
+    left: 73.25%;
+    font-size: 20px;
+}
+
+.number:nth-child(3) {
+    top: 20.5%;
+    left: 90.75%;
+    font-size: 20px;
+}
+
+.number:nth-child(4) {
+    top: 44.75%;
+    left: 98.75%;
+    font-size: 20px;
+}
+
+.number:nth-child(5) {
+    top: 68.75%;
+    left: 93.25%;
+    font-size: 20px;
+}
+
+.number:nth-child(6) {
+    top: 87%;
+    left: 74%;
+    font-size: 20px;
+}
+
+.number:nth-child(7) {
+    top: 93.75%;
+    left: 47.75%;
+    font-size: 20px;
+}
+
+.number:nth-child(8) {
+    top: 86.75%;
+    left: 24.25%;
+    font-size: 20px;
+}
+
+.number:nth-child(9) {
+    top: 69.5%;
+    left: 6.25%;
+    font-size: 20px;
+}
+
+.number:nth-child(10) {
+    top: 44.5%;
+    left: 1.75%;
+    font-size: 20px;
+}
+
+.number:nth-child(11) {
+    top: 21.5%;
+    left: 9%;
+    font-size: 20px;
+}
+
+.number:nth-child(12) {
+    top: 3.5%;
+    left: 25%;
+    font-size: 20px;
+}
+
+.clock-settings label {
+    display: flex;
+    margin-bottom: 7px;
+    width: 170px;
+}
+
+#kpt-btn{
+    margin-top: 117px;
+    width: 75px;
+}
+
+.background-color-picker {
+    margin-bottom: 20px;
+}
+
+.background-color-picker label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.background-color-picker input[type="color"] {
+    width: 40px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.image-box{
+    width: 30px;
+    height: 30px;
+    border: 2px solid green;
+}
+
+.col-3 {
+    flex: 0 0 auto;
+    width: 25%;
+    margin-top: 20px;
+}
+
+#dzn-btn{
+    margin-top: 18px;
+    margin-left: 78px;
+}
+
+#saat-cercevesi{
+    border: 2px solid green;
+    border-radius: 4px;
+    margin-left: -12px;
+}
+
+.kadran-alani{
+    margin-top: 3px;
+}

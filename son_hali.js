@@ -1,0 +1,102 @@
+function updateClock() {
+    const now = new Date();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const second = now.getSeconds();
+    const hourHand = document.getElementById('hour-hand');
+    const minuteHand = document.getElementById('minute-hand');
+    const secondHand = document.getElementById('second-hand');
+
+    const hourDeg = (hour % 12) * 30 + (minute / 60) * 30;
+    const minuteDeg = minute * 6;
+    const secondDeg = second * 6;
+
+    hourHand.style.transform = `rotate(${hourDeg}deg)`;
+    minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+    secondHand.style.transform = `rotate(${secondDeg}deg)`;
+
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+// Kadran ayarlarını al
+const thicknessInput = document.getElementById('thickness');
+const colorInput = document.getElementById('color');
+
+// Kadran ayarlarının değişimini dinle
+thicknessInput.addEventListener('input', updateClockStyle);
+colorInput.addEventListener('input', updateClockStyle);
+
+// Saat kadranı stilini güncelle
+function updateClockStyle() {
+    // Kalınlık değerini al ve CSS değişkenine ata
+    document.documentElement.style.setProperty('--hand-thickness', thicknessInput.value + 'px');
+    // Renk değerini al ve CSS değişkenine ata
+    document.documentElement.style.setProperty('--hand-color', colorInput.value);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const backgroundColorPicker = document.getElementById("background-color");
+    const screen = document.querySelector(".screen");
+
+    backgroundColorPicker.addEventListener("input", function () {
+        const selectedColor = this.value;
+        screen.style.backgroundColor = selectedColor;
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const watchBackgroundColorPicker = document.getElementById("watch-background-color");
+    const myWatch = document.querySelector(".mywatch");
+
+    watchBackgroundColorPicker.addEventListener("input", function () {
+        const selectedColor = this.value;
+        myWatch.style.backgroundColor = selectedColor;
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imageBoxes = document.querySelectorAll('.image-box img');
+    const screen = document.querySelector('.screen');
+
+    imageBoxes.forEach(function(imageBox) {
+        imageBox.addEventListener('click', function() {
+            const imageUrl = imageBox.getAttribute('src');
+            screen.style.backgroundImage = 'url(' + imageUrl + ')';
+        });
+    });
+});
+
+
+// Resim ekleme butonuna tıklandığında
+document.getElementById('saveImage').addEventListener('click', function () {
+    // Resim yükleme input elementini al
+    var input = document.getElementById('imageUpload');
+
+    // Eğer resim seçilmişse devam et
+    if (input.files && input.files[0]) {
+        // Dosya okuma işlemi için FileReader kullan
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            // Yüklenecek resmin HTML kodunu oluştur
+            var newImage = '<div class="col-2"><img src="' + e.target.result + '" class="img-fluid" alt="Resim"></div>';
+
+            // Resimleri ekleyeceğimiz div elementini al
+            var imageRow = document.getElementById('imageRow');
+
+            // Yeni resmi ekle
+            imageRow.innerHTML += newImage;
+
+            // Eğer altıncı sıradaki eleman varsa resim ekle butonunu sakla
+            if (imageRow.children.length >= 6) {
+                document.getElementById('addImageButton').style.display = 'none';
+            }
+        };
+
+        // Resmi oku ve yükle
+        reader.readAsDataURL(input.files[0]);
+    }
+});
+
