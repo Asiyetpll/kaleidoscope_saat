@@ -3,7 +3,7 @@
     width: 560px;
     height: 670px;
     border: 3px solid rgb(110, 79, 110);
-    border-radius: 2px;
+    border-radius: 10px;
     margin-top: 5px;
     margin-right: 5px;
     position: absolute;
@@ -42,7 +42,7 @@
     margin-left: 0px;
     text-align: -webkit-center;
     border: 2px solid purple;
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 .kaleidoscope {
@@ -169,10 +169,10 @@
     position: absolute;
     height: calc(1.75 * var(--tile-length));
     width: calc(1.75 * var(--tile-length));
-    background-image: url(kaleidoscope_saat/resimler/manzara.jpg);
     background-size: 100%;
     -webkit-animation: rotation var(--animation-duration) linear infinite;
     animation: rotation var(--animation-duration) linear infinite;
+    background-image: var(--texture-image, url(kaleidoscope_saat/resimler/manzara.jpg)); 
 }
 
 .tile .texture {
@@ -411,7 +411,7 @@
     width: 40px;
     height: 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -434,7 +434,7 @@
 
 #saat-cercevesi{
     border: 2px solid green;
-    border-radius: 4px;
+    border-radius: 10px;
     margin-left: -12px;
 }
 

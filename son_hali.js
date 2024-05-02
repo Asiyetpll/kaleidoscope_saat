@@ -28,14 +28,6 @@ const colorInput = document.getElementById('color');
 thicknessInput.addEventListener('input', updateClockStyle);
 colorInput.addEventListener('input', updateClockStyle);
 
-// Saat kadranı stilini güncelle
-function updateClockStyle() {
-    // Kalınlık değerini al ve CSS değişkenine ata
-    document.documentElement.style.setProperty('--hand-thickness', thicknessInput.value + 'px');
-    // Renk değerini al ve CSS değişkenine ata
-    document.documentElement.style.setProperty('--hand-color', colorInput.value);
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     const backgroundColorPicker = document.getElementById("background-color");
     const screen = document.querySelector(".screen");
@@ -56,18 +48,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const imageBoxes = document.querySelectorAll('.image-box img');
-    const screen = document.querySelector('.screen');
-
-    imageBoxes.forEach(function(imageBox) {
-        imageBox.addEventListener('click', function() {
-            const imageUrl = imageBox.getAttribute('src');
-            screen.style.backgroundImage = 'url(' + imageUrl + ')';
+document.addEventListener("DOMContentLoaded", function () {
+    // Resimlerin bulunduğu img etiketlerini seç
+    var images = document.querySelectorAll(".image-box img");
+    
+    // Her bir resim için click event listener ekle
+    images.forEach(function (image, index) {
+        image.addEventListener("click", function () {
+            // Saat arka planı için gerekli dosya yolu
+            var backgroundImagePath = "kaleidoscope_saat/resimler/manzara" + (index + 1) + ".jpg";
+            
+            // Saatin texture sınıfındaki background-image özelliğini güncelle
+            var textures = document.querySelectorAll(".texture");
+            textures.forEach(function(texture) {
+                texture.style.backgroundImage = "url('" + backgroundImagePath + "')";
+            });
         });
     });
 });
-
 
 // Resim ekleme butonuna tıklandığında
 document.getElementById('saveImage').addEventListener('click', function () {
