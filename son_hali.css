@@ -437,6 +437,11 @@
     cursor: pointer;
 }
 
+.img-fluid {
+    max-width: 28px;
+    height: 28px;
+}
+
 .col-3 {
     flex: 0 0 auto;
     width: 25%;
