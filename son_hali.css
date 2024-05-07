@@ -246,6 +246,10 @@
     margin-left: 40px;
 }
 
+.hidden {
+    display: none;
+}
+
 .screen {
     width: 140px;
     height: 140px;

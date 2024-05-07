@@ -20,6 +20,67 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+// Sayfa yüklendiğinde JavaScript çalıştır
+window.onload = function() {
+    // Düzenleme butonunu seç
+    var duzenleButton = document.getElementById("dzn-btn");
+
+    // Düzenleme butonuna tıklanınca
+    duzenleButton.onclick = function() {
+        // Belirli alanları açıp/kapat
+        toggleSections();
+    };
+
+    // Resim ekleme butonunu seç
+    var resimEkleButton = document.getElementById("addImageButton");
+
+    // Resim ekleme butonuna tıklanınca
+    resimEkleButton.onclick = function() {
+        // Resim ekleme modalını göster
+        toggleModal();
+    };
+};
+
+// Belirli alanları açıp/kapat
+function toggleSections() {
+    // Kadran alanını aç/kapat
+    var kadranAlani = document.querySelector(".kadran-alani");
+    toggleDisplay(kadranAlani);
+
+    // Resimler alanını aç/kapat
+    var resimlerAlani = document.getElementById("resimler");
+    toggleDisplay(resimlerAlani);
+}
+
+// Bir HTML öğesinin görünürlüğünü değiştirir
+function toggleDisplay(element) {
+    if (element.style.display === "none") {
+        element.style.display = "block";
+    } else {
+        element.style.display = "none";
+    }
+}
+
+// Resim ekleme modalını açıp/kapat
+function toggleModal() {
+    var modal = document.getElementById("exampleModal");
+    var modalBackdrop = document.querySelector(".modal-backdrop");
+    
+    if (modal.classList.contains("show")) {
+        modal.classList.remove("show");
+        modalBackdrop.remove();
+    } else {
+        modal.classList.add("show");
+        document.body.appendChild(modalBackdrop);
+    }
+}
+
+// Kadran alanını açıp/kapat
+function toggleKadranAlani() {
+    var kadranAlani = document.getElementById("kadran-alani");
+    kadranAlani.classList.toggle("hidden");
+}
+
 // Kadran ayarlarını al
 const thicknessInput = document.getElementById('thickness');
 const colorInput = document.getElementById('color');
@@ -51,16 +112,16 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     // Resimlerin bulunduğu img etiketlerini seç
     var images = document.querySelectorAll(".image-box img");
-    
+
     // Her bir resim için click event listener ekle
     images.forEach(function (image, index) {
         image.addEventListener("click", function () {
             // Saat arka planı için gerekli dosya yolu
             var backgroundImagePath = "kaleidoscope_saat/resimler/manzara" + (index + 1) + ".jpg";
-            
+
             // Saatin texture sınıfındaki background-image özelliğini güncelle
             var textures = document.querySelectorAll(".texture");
-            textures.forEach(function(texture) {
+            textures.forEach(function (texture) {
                 texture.style.backgroundImage = "url('" + backgroundImagePath + "')";
             });
         });
