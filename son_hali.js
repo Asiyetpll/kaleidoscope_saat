@@ -26,7 +26,7 @@ var myWatch = document.querySelector('.mywatch');
 var additionalContent = document.querySelector('.additional-content');
 
 // Saat öğesine tıklanınca görünürlüğü değiştir
-myWatch.addEventListener('click', function() {
+myWatch.addEventListener('click', function () {
     // Eğer additional-content görünürse, gizle; değilse görünür yap
     if (additionalContent.style.display === 'block') {
         additionalContent.style.display = 'none';
@@ -36,23 +36,14 @@ myWatch.addEventListener('click', function() {
 });
 
 // Sayfa yüklendiğinde JavaScript çalıştır
-window.onload = function() {
+window.onload = function () {
     // Düzenleme butonunu seç
     var duzenleButton = document.getElementById("dzn-btn");
 
     // Düzenleme butonuna tıklanınca
-    duzenleButton.onclick = function() {
+    duzenleButton.onclick = function () {
         // Belirli alanları açıp/kapat
         toggleSections();
-    };
-
-    // Resim ekleme butonunu seç
-    var resimEkleButton = document.getElementById("addImageButton");
-
-    // Resim ekleme butonuna tıklanınca
-    resimEkleButton.onclick = function() {
-        // Resim ekleme modalını göster
-        toggleModal();
     };
 };
 
@@ -80,7 +71,7 @@ function toggleDisplay(element) {
 function toggleModal() {
     var modal = document.getElementById("exampleModal");
     var modalBackdrop = document.querySelector(".modal-backdrop");
-    
+
     if (modal.classList.contains("show")) {
         modal.classList.remove("show");
         modalBackdrop.remove();
@@ -91,7 +82,7 @@ function toggleModal() {
 }
 
 // Kaydet düğmesine tıklandığında modalı kapat
-document.getElementById("saveImage").addEventListener("click", function() {
+document.getElementById("saveImage").addEventListener("click", function () {
     var modal = document.getElementById("exampleModal");
     var modalBackdrop = document.querySelector(".modal-backdrop");
     modal.classList.remove("show");
@@ -115,26 +106,19 @@ document.getElementById("exampleModal").classList.remove("show");
 
 
 // Düzenle düğmesine tıklandığında mor çerçevenin rengini değiştir
-document.getElementById("dzn-btn").addEventListener("click", function() {
+document.getElementById("dzn-btn").addEventListener("click", function () {
     var morCerceve = document.querySelector(".mor_cerceve");
     morCerceve.classList.toggle("renk-degistir");
 });
 
-// Kadran ayarlarını al
-const thicknessInput = document.getElementById('thickness');
-const colorInput = document.getElementById('color');
-
-// Kadran ayarlarının değişimini dinle
-thicknessInput.addEventListener('input', updateClockStyle);
-colorInput.addEventListener('input', updateClockStyle);
-
+// Saat alanıyla ilişkilendirilmiş JavaScript fonksiyonları
 document.addEventListener("DOMContentLoaded", function () {
-    const backgroundColorPicker = document.getElementById("background-color");
-    const screen = document.querySelector(".screen");
+    // .mywatch alanını al
+    var myWatch = document.querySelector(".mywatch");
 
-    backgroundColorPicker.addEventListener("input", function () {
-        const selectedColor = this.value;
-        screen.style.backgroundColor = selectedColor;
+    // Saat arka plan rengi değiştiğinde çalışacak fonksiyon
+    myWatch.querySelector("#watch-background-color").addEventListener("change", function () {
+        myWatch.style.backgroundColor = this.value;
     });
 });
 
