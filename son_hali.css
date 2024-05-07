@@ -445,6 +445,7 @@
 .small-image{
     width: 69px;
     height: 43px;
+    cursor: pointer;
 }
 
 .col-3 {
