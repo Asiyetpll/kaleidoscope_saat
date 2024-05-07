@@ -446,6 +446,7 @@
     width: 69px;
     height: 43px;
     cursor: pointer;
+    border: 2px solid green !important;
 }
 
 .col-3 {

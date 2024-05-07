@@ -148,19 +148,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Kapat butonunu seç
+    var closeButton = document.getElementById("kpt-btn");
+
+    // Kapat butonuna click event listener ekle
+    closeButton.addEventListener("click", function () {
+        // Saatin texture sınıfındaki background-image özelliğini temizle
+        var textures = document.querySelectorAll(".texture");
+        textures.forEach(function (texture) {
+            texture.style.backgroundImage = "none";
+        });
+    });
+
     // Resimlerin bulunduğu img etiketlerini seç
-    var images = document.querySelectorAll(".image-box img");
+    var images = document.querySelectorAll(".image-box img",".image-box1 img");
 
     // Her bir resim için click event listener ekle
-    images.forEach(function (image, index) {
+    images.forEach(function (image) {
         image.addEventListener("click", function () {
-            // Saat arka planı için gerekli dosya yolu
-            var backgroundImagePath = "kaleidoscope_saat/resimler/manzara" + (index + 1) + ".jpg";
+            // Resmin yolu
+            var imagePath = image.src;
 
             // Saatin texture sınıfındaki background-image özelliğini güncelle
             var textures = document.querySelectorAll(".texture");
             textures.forEach(function (texture) {
-                texture.style.backgroundImage = "url('" + backgroundImagePath + "')";
+                texture.style.backgroundImage = "url('" + imagePath + "')";
             });
         });
     });
