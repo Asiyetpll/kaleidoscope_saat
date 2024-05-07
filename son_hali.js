@@ -20,6 +20,21 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+// Saat öğesini seç
+var myWatch = document.querySelector('.mywatch');
+// Additional-content bölümünü seç
+var additionalContent = document.querySelector('.additional-content');
+
+// Saat öğesine tıklanınca görünürlüğü değiştir
+myWatch.addEventListener('click', function() {
+    // Eğer additional-content görünürse, gizle; değilse görünür yap
+    if (additionalContent.style.display === 'block') {
+        additionalContent.style.display = 'none';
+    } else {
+        additionalContent.style.display = 'block';
+    }
+});
+
 // Sayfa yüklendiğinde JavaScript çalıştır
 window.onload = function() {
     // Düzenleme butonunu seç

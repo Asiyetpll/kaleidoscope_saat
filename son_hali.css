@@ -250,6 +250,13 @@
     margin-left: 40px;
 }
 
+.mywatch:hover .additional-content {
+    display: block;
+}
+.mywatch:hover {
+    cursor: pointer;
+}
+
 .hidden {
     display: none;
 }
@@ -268,7 +275,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 /* Saat kadranı stilleri */
 .hour-hand,
