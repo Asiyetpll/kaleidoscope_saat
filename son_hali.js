@@ -178,7 +178,7 @@ document.getElementById('saveImage').addEventListener('click', function () {
 
         reader.onload = function (e) {
             // Yüklenecek resmin HTML kodunu oluştur
-            var newImage = '<div class="col-2"><img src="' + e.target.result + '" class="img-fluid" alt="Resim"></div>';
+            var newImage = '<div class="col-2"><img src="' + e.target.result + '" class="small-image" alt="Resim"></div>';
 
             // Resimleri ekleyeceğimiz div elementini al
             var imageRow = document.getElementById('imageRow');

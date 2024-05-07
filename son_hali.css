@@ -442,6 +442,11 @@
     height: 28px;
 }
 
+.small-image{
+    width: 69px;
+    height: 43px;
+}
+
 .col-3 {
     flex: 0 0 auto;
     width: 25%;
