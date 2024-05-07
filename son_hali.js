@@ -111,16 +111,31 @@ document.getElementById("dzn-btn").addEventListener("click", function () {
     morCerceve.classList.toggle("renk-degistir");
 });
 
-// Saat alanıyla ilişkilendirilmiş JavaScript fonksiyonları
 document.addEventListener("DOMContentLoaded", function () {
     // .mywatch alanını al
     var myWatch = document.querySelector(".mywatch");
 
+    // Kadran rengi değiştiğinde çalışacak fonksiyon
+    document.querySelector(".kadran-rengi input[type='color']").addEventListener("input", function () {
+        myWatch.querySelector(".kadran-rengi").style.backgroundColor = this.value;
+    });
+
+    // Saat içi arka plan rengi değiştiğinde çalışacak fonksiyon
+    document.querySelector(".ic-arka-plan input[type='color']").addEventListener("input", function () {
+        myWatch.querySelector(".clock-settings").style.backgroundColor = this.value;
+    });
+
     // Saat arka plan rengi değiştiğinde çalışacak fonksiyon
-    myWatch.querySelector("#watch-background-color").addEventListener("change", function () {
-        myWatch.style.backgroundColor = this.value;
+    document.querySelector(".dis-arka-plan input[type='color']").addEventListener("input", function () {
+        myWatch.querySelector(".kadran-alani").style.backgroundColor = this.value;
+    });
+
+    // Arka plan kalınlığı değiştiğinde çalışacak fonksiyon
+    document.querySelector(".arka-plan-kalinlik input[type='range']").addEventListener("input", function () {
+        myWatch.style.borderWidth = this.value + 'px';
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const watchBackgroundColorPicker = document.getElementById("watch-background-color");

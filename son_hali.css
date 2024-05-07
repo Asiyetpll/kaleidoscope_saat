@@ -17,6 +17,7 @@
 #stil{
     display: block;
     text-align: center;
+    background-color: white;
 }
 
 #stil1{
@@ -433,6 +434,7 @@
     width: 30px;
     height: 30px;
     border: 2px solid green;
+    cursor: pointer;
 }
 
 .col-3 {
