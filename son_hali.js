@@ -75,11 +75,35 @@ function toggleModal() {
     }
 }
 
+// Kaydet düğmesine tıklandığında modalı kapat
+document.getElementById("saveImage").addEventListener("click", function() {
+    var modal = document.getElementById("exampleModal");
+    var modalBackdrop = document.querySelector(".modal-backdrop");
+    modal.classList.remove("show");
+    modalBackdrop.remove();
+});
+
 // Kadran alanını açıp/kapat
 function toggleKadranAlani() {
     var kadranAlani = document.getElementById("kadran-alani");
     kadranAlani.classList.toggle("hidden");
 }
+
+// Resimler alanını açıp/kapat
+function toggleResimler() {
+    var resimlerAlani = document.getElementById("resimler");
+    resimlerAlani.classList.toggle("hidden");
+}
+
+// Modal'ı gizle
+document.getElementById("exampleModal").classList.remove("show");
+
+
+// Düzenle düğmesine tıklandığında mor çerçevenin rengini değiştir
+document.getElementById("dzn-btn").addEventListener("click", function() {
+    var morCerceve = document.querySelector(".mor_cerceve");
+    morCerceve.classList.toggle("renk-degistir");
+});
 
 // Kadran ayarlarını al
 const thicknessInput = document.getElementById('thickness');
