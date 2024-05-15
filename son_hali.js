@@ -115,19 +115,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // .mywatch alanını al
     var myWatch = document.querySelector(".mywatch");
 
-    // Kadran rengi değiştiğinde çalışacak fonksiyon
-    document.querySelector(".kadran-rengi input[type='color']").addEventListener("input", function () {
-        myWatch.querySelector(".kadran-rengi").style.backgroundColor = this.value;
-    });
+    // Kadran rengini değiştiren herhangi bir olayda çalışacak fonksiyon
+    document.querySelector("#color").addEventListener("input", function () {
+        // Yeni kadran rengi
+        var newColor = this.value;
 
-    // Saat içi arka plan rengi değiştiğinde çalışacak fonksiyon
-    document.querySelector(".ic-arka-plan input[type='color']").addEventListener("input", function () {
-        myWatch.querySelector(".clock-settings").style.backgroundColor = this.value;
-    });
+        // Saat elemanlarını al
+        var hourHand = document.getElementById("hour-hand");
+        var minuteHand = document.getElementById("minute-hand");
+        var secondHand = document.getElementById("second-hand");
 
-    // Saat arka plan rengi değiştiğinde çalışacak fonksiyon
-    document.querySelector(".dis-arka-plan input[type='color']").addEventListener("input", function () {
-        myWatch.querySelector(".kadran-alani").style.backgroundColor = this.value;
+        // Saat elemanlarının arka plan rengini güncelle
+        hourHand.style.backgroundColor = newColor;
+        minuteHand.style.backgroundColor = newColor;
+        secondHand.style.backgroundColor = newColor;
     });
 
     // Arka plan kalınlığı değiştiğinde çalışacak fonksiyon
@@ -135,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
         myWatch.style.borderWidth = this.value + 'px';
     });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -161,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Resimlerin bulunduğu img etiketlerini seç
-    var images = document.querySelectorAll(".image-box img",".image-box1 img");
+    var images = document.querySelectorAll(".image-box img", ".image-box1 img");
 
     // Her bir resim için click event listener ekle
     images.forEach(function (image) {
@@ -203,9 +205,83 @@ document.getElementById('saveImage').addEventListener('click', function () {
                 document.getElementById('addImageButton').style.display = 'none';
             }
         };
+        // Resim yükleme butonunu ve formunu seç
+        var addImageButton = document.getElementById("addImageButton");
+        var imageUpload = document.getElementById("imageUpload");
+
+        // Resim yükleme butonuna click event listener ekle
+        addImageButton.addEventListener("click", function () {
+            // Resim yükleme formunu temizle
+            imageUpload.value = "";
+        });
+
+        // Kaydet butonuna click event listener ekle
+        var saveButton = document.getElementById("saveImage");
+        saveButton.addEventListener("click", function () {
+            // Yüklenen resmi al
+            var uploadedImage = imageUpload.files[0];
+
+            // Yüklü resmi göstermek için bir img elementi oluştur
+            var imgElement = document.createElement("img");
+            imgElement.classList.add("small-image");
+            imgElement.src = URL.createObjectURL(uploadedImage);
+
+            // Yeni resmi içeren bir div oluştur
+            var imageDiv = document.createElement("div");
+            imageDiv.classList.add("col-2");
+            imageDiv.style.maxWidth = "130%";
+            imageDiv.appendChild(imgElement);
+
+            // Resimleri içeren bölüme yeni resmi ekle
+            var imageRow = document.getElementById("imageRow");
+            imageRow.appendChild(imageDiv);
+
+            // Yeni eklenen resme click event listener ekle
+            imgElement.addEventListener("click", function () {
+                // Resmin yolunu al
+                var imagePath = imgElement.src;
+
+                // Saatin texture sınıfındaki background-image özelliğini güncelle
+                var textures = document.querySelectorAll(".texture");
+                textures.forEach(function (texture) {
+                    texture.style.backgroundImage = "url('" + imagePath + "')";
+                });
+            });
+        });
+
+        // Eklenen resimlere click event listener ekle
+        var imageRow = document.getElementById("imageRow");
+        imageRow.addEventListener("click", function (event) {
+            // Tıklanan öğenin bir resim olup olmadığını kontrol et
+            if (event.target.tagName === "IMG") {
+                // Tıklanan resmin yolunu al
+                var imagePath = event.target.src;
+
+                // Saatin texture sınıfındaki background-image özelliğini güncelle
+                var textures = document.querySelectorAll(".texture");
+                textures.forEach(function (texture) {
+                    texture.style.backgroundImage = "url('" + imagePath + "')";
+                });
+            }
+        });
 
         // Resmi oku ve yükle
         reader.readAsDataURL(input.files[0]);
     }
 });
 
+/* // Kapat butonunu seç
+var closeButton = document.getElementById("kpt-btn");
+
+// Kapat butonuna click event listener ekle
+closeButton.addEventListener("click", function () {
+    // Diğer tüm elementleri gizle
+    var allElements = document.querySelectorAll(".row, .modal");
+    allElements.forEach(function (element) {
+        element.style.display = "none";
+    });
+
+    // "mywatch" elementini görünür hale getir
+    var mywatch = document.getElementById("mywatch");
+    mywatch.style.display = "block";
+}); */

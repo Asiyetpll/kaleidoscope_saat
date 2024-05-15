@@ -52,8 +52,8 @@
 
 .kaleidoscope {
     position: relative;
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     -webkit-animation: rotation var(--animation-duration) linear infinite;
     animation: rotation var(--animation-duration) linear infinite;
     border-radius: 50%;
@@ -79,37 +79,37 @@
 
 .kl-el:nth-child(1) {
     top: 50%;
-    left: -17%;
+    left: -9%;
 }
 
 .kl-el:nth-child(2) {
     top: 50%;
-    left: 34%;
+    left: 35%;
 }
 
 .kl-el:nth-child(3) {
     top: 50%;
-    left: 85%;
+    left: 79%;
 }
 
 .kl-el:nth-child(4) {
     top: calc(46% - calc(1.31* 129px / 3));
-    left: calc(85px / 3* 0.423);
+    left: calc(85px / 3* 0.73);
 }
 
 .kl-el:nth-child(5) {
     top: calc(50% - calc(1.49* 125px / 3));
-    left: calc(3* 117px / 3* 0.717);
+    left: calc(3* 117px / 3* 0.787);
 }
 
 .kl-el:nth-child(6) {
-    top: calc(50% + calc(1.5* 125px / 3));
-    left: calc(86px / 3* 0.420);
+    top: calc(50% + calc(1.5* 120px / 3));
+    left: calc(86px / 3* 0.720);
 }
 
 .kl-el:nth-child(7) {
-    top: calc(50% + calc(1.5* 125px / 3));
-    left: calc(3* 117px / 3* 0.717);
+    top: calc(50% + calc(1.5* 120px / 3));
+    left: calc(3* 117px / 3* 0.777);
 }
 
 @-webkit-keyframes rotation {
@@ -263,8 +263,8 @@
 }
 
 .screen {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
     background-color: #000;
     position: absolute;
     top: 50%;
@@ -293,21 +293,21 @@
 
 .hour-hand {
     height: 35px;
-    top: 35px;
+    top: 45px;
     margin-left: 0;
     width: 3px;
 }
 
 .minute-hand {
     height: 50px;
-    top: 20px;
+    top: 30px;
     margin-left: 0;
     width: 3px;
 }
 
 .second-hand {
     height: 70px;
-    top: 0px;
+    top: 10px;
     margin-left: 0;
     width: 1px;
 }
@@ -410,7 +410,7 @@
 
 #kpt-btn{
     margin-top: 100px;
-    width: 75px;
+    width: 150px;
 }
 
 .background-color-picker {
